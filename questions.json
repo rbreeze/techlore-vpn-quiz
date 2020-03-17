@@ -1,0 +1,47 @@
+[
+    {
+        "Prompt": "What is your main use for a VPN?", 
+        "Choices": 
+            [ "Improved security and privacy"
+            , "Downloading content"
+            , "Both of the above" 
+            ]
+    },
+    {
+        "Prompt": "What's your technological experience level?", 
+        "Choices": 
+            [ "Advanced: I am a tech wiz and want a complex program with customization"
+            , "Intermediate: I can use an advanced client, but would prefer moderately simple"
+            , "Beginner: I need an easy experience and don’t have the time and resources to configure or setup software"
+            ]
+    },
+    {
+        "Prompt": "Do the 14 Eyes matter to you? (Read more here…)", 
+        "Choices": 
+            [ "Yes, I believe providers in the 14 eyes can never be trusted"
+            , "I don’t believe it’s black and white, and I trust some services in the 14 eyes"
+            , "The 14 eyes do not matter to me whatsoever"
+            , "I don’t know or care"
+            ]
+    },
+    {
+        "Prompt": "How many simultaneous devices do you need?", 
+        "Choices": 
+            [ "Just a couple or so, I’ll mostly use just one laptop and one phone"
+            , "Around 4-6"
+            , "As many as possible!"
+            ]
+    },
+    {
+        "Prompt": "What devices would you like a client for?", 
+        "Choices": 
+            [ "Windows"
+            , "MacOS"
+            , "Linux (At least CLI)"
+            , "Linux (At least GUI)" 
+            , "Android"
+            , "iOS"
+            , "I don’t need any 1st part clients"
+            ]
+    }
+]
