@@ -129,6 +129,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap; 
 }
 
 .vpn-list li {
@@ -190,12 +191,11 @@ ul {
 
 @media screen and (max-width: 900px) {
     .finder {
-        flex-direction: column;
+        display: grid;
+        grid-auto-rows: auto;
     }
     .question, .results {
         width: 100%;
-        height: 50%;
-        min-height: 400px;
         padding: 0;
     }
     .question {
@@ -204,10 +204,9 @@ ul {
     }
     .results {
         padding-top: 15px;
-        padding-bottom: 55px;
+        padding-bottom: 45px;
     }
     .results .c, .question .content {
-        min-height: 400px;
         height: 100%;
     }
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "286afaef84241e43c614a18e14041e49",
+    "revision": "50ef10221cb9cc9005f43e0154e56325",
     "url": "/techlore-vpn-quiz/index.html"
   },
   {
-    "revision": "0290ec4d58f4c4998eac",
-    "url": "/techlore-vpn-quiz/static/css/main.a7b5637d.chunk.css"
+    "revision": "3a26bff25df380da5d6b",
+    "url": "/techlore-vpn-quiz/static/css/main.78ec51d0.chunk.css"
   },
   {
     "revision": "83b7f34c0d21ad4a421b",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/techlore-vpn-quiz/static/js/2.c7c68428.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0290ec4d58f4c4998eac",
+    "revision": "3a26bff25df380da5d6b",
     "url": "/techlore-vpn-quiz/static/js/main.c42f2a1b.chunk.js"
   },
   {
