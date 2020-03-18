@@ -1,9 +1,10 @@
 class Question {
-    constructor(prompt, choices, criteria, choice) {
+    constructor(prompt, choices, criteria, multi, choice) {
         this.prompt = prompt;
         this.choices = choices;
         this.criteria = criteria; 
         this.choice = choice;
+        this.multi = multi
     }
 
     ask() {
@@ -114,30 +115,32 @@ criteria[3] = (choice) => {
     }
 }
 
-criteria[4] = (choice) => {
+criteria[4] = (choices) => {
     return (vpn) => {
-        var r;
-        switch (choice) {
-            case 0: 
-                r = vpn["Windows Client?"] == "Yes"
-                break;
-            case 1: 
-                r = vpn["MacOS Client?"] == "Yes"
-                break;
-            case 2: 
-                r = vpn["Linux Client?"] == "Yes"
-                break;
-            case 3: 
-                r = vpn["Linux Client?"] == "Yes"
-                break;
-            case 4: 
-                r = vpn["Android Client?"] == "Yes"
-                break;
-            case 5: 
-                r = vpn["iOS Client?"] == "Yes"
-                break;
-            default: 
-                r = true
+        var r = true;
+        for (var choice of choices) {
+            switch (choice) {
+                case 0: 
+                    r = vpn["Windows Client?"] == "Yes" && r; 
+                    break;
+                case 1: 
+                    r = vpn["MacOS Client?"] == "Yes" && r; 
+                    break;
+                case 2: 
+                    r = vpn["Linux Client?"] == "Yes" && r; 
+                    break;
+                case 3: 
+                    r = vpn["Linux Client?"] == "Yes" && r; 
+                    break;
+                case 4: 
+                    r = vpn["Android Client?"] == "Yes" && r; 
+                    break;
+                case 5: 
+                    r = vpn["iOS Client?"] == "Yes" && r; 
+                    break;
+                default: 
+                    r = r 
+            }
         }
         return r;
     }

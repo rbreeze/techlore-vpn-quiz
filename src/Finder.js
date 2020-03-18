@@ -13,6 +13,7 @@ class Finder extends React.Component {
             questions: [],
             error: null, 
             selected: 0, 
+            selections: [], 
             top: [], 
             vpns: [], 
             cur: 0, 
@@ -22,6 +23,7 @@ class Finder extends React.Component {
         };
 
         this.choose = this.choose.bind(this);
+        this.chooseMulti = this.chooseMulti.bind(this);
         this.nextQuestion = this.nextQuestion.bind(this); 
         this.changeVpn = this.changeVpn.bind(this);
         this.finish = this.finish.bind(this); 
@@ -32,16 +34,24 @@ class Finder extends React.Component {
         let questionData = (await (await fetch("https://raw.githubusercontent.com/rbreeze/techlore-vpn-quiz/master/questions.json")).json()); 
 
         var questions = Array(questionData.length);
+        var selections = []; 
         var i = 0; 
         for (var q of questionData) {
-            questions[i] = (new Question(q["Prompt"], q["Choices"], criteria[i])); 
+            let m = q["Max Selections"]; 
+            questions[i] = (new Question(q["Prompt"], q["Choices"], criteria[i], m)); 
+            selections = m > 1 ? Array(m) : []; 
             i++; 
         }
+
+        selections.fill(false); 
+        selections[0] = true; 
+
         this.setState({
             isLoaded: true, 
             vpns: vpnData,
             top: vpnData.slice(0,3),
-            questions: questions
+            questions: questions, 
+            selections: selections
         })
     }
 
@@ -49,12 +59,18 @@ class Finder extends React.Component {
         this.setState({ selected: i });
     }
 
+    chooseMulti(i) {
+        var newSelections = this.state.selections; 
+        newSelections[i] = !newSelections[i]; 
+        this.setState({ selections: newSelections }); 
+    }
+
     nextQuestion() {
         let cur = this.state.cur;
         let questions = this.state.questions; 
         let next = cur >= questions.length-1 ? 0 : cur+1; 
 
-        questions[cur].choice = this.state.selected; 
+        questions[cur].choice = questions[cur].multi ? this.state.selections : this.state.selected; 
         let newPool = questions[cur].filterVPNs(this.state.vpns).sort(vpnCompare);
 
         this.setState({ cur: next, vpns: newPool, top: newPool.slice(0,3), selected: 0, questions: questions, lastQuestion: next == questions.length-1 }); 
@@ -69,7 +85,7 @@ class Finder extends React.Component {
     }
 
     render() {
-        const { isLoaded, questions, error, selected, top, vpns, cur, lastQuestion, finished, curVpn } = this.state; 
+        const { isLoaded, questions, error, selected, top, vpns, cur, lastQuestion, finished, curVpn, selections } = this.state; 
 
         if (error) { return (<div>Error: {error.message}</div>) }
         else if (!isLoaded) { return (<div>Loading...</div>) }
@@ -134,6 +150,7 @@ class Finder extends React.Component {
             let curQuestion = questions[cur]; 
             let prompt = curQuestion.prompt; 
             let choices = curQuestion.choices; 
+            let multi = curQuestion.multi || false; 
 
             let actionButton = lastQuestion ?
                 <button onClick={this.finish}><i className="fas fa-check"></i></button> : 
@@ -150,8 +167,8 @@ class Finder extends React.Component {
                         <h2 className="prompt"> {prompt} </h2>
                         <div className="choices">
                             { choices.map((choice, key) => (
-                                <div key={key} className="choice" onClick={() => this.choose(key)}> 
-                                    <div className="radio">{ Number(selected) == key ? checked : unchecked }</div> 
+                                <div key={key} className="choice" onClick={ multi ? () => this.chooseMulti(key) : () => this.choose(key)}> 
+                                    <div className="radio">{ (multi ? selections[key] == true : Number(selected) == key) ? checked : unchecked }</div> 
                                     <label> {choice} </label> 
                                 </div>
                             )) }
