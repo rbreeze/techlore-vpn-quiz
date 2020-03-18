@@ -1,7 +1,7 @@
 // server
 var express = require('express')
 var app = express(); 
-app.use(express.static('public'));
+app.use(express.static('finder/build'));
 let port = 5000;
 app.listen(port); 
 console.log("App running on port " + port); 
