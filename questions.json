@@ -42,6 +42,7 @@
             , "Android"
             , "iOS"
             , "I don’t need any 1st part clients"
-            ]
+            ], 
+        "Max Selections": 7
     }
 ]
