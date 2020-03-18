@@ -31,12 +31,12 @@ criteria[0] = (choice) => {
                     vpn["System Killswitch"] == "Yes" &&
                     vpn["Strongest Data Encryption"] == "AES 256" &&
                     (vpn["Strongest Handshake Encryption"] == "RSA 2048" || vpn["Strongest Handshake Encryption"] == "RSA 4096") &&
-                    vpn["Logging Policy"] == "No Logs" &&
+                    (vpn["Logging Policy"] == "No Logs" || vpn["Logging Policy"] == "Timestamps/Bandwidth") &&
                     vpn["History (S)"] != "Questionable";
 
         var opt2 =  vpn["Stability Score"] > 4 &&
                     vpn["System Killswitch"] == "Yes" &&
-                    vpn["Logging Policy"] == "No Logs"; 
+                    (vpn["Logging Policy"] == "No Logs" || vpn["Logging Policy"] == "Timestamps/Bandwidth"); 
 
         switch (choice) {
             case 0:
