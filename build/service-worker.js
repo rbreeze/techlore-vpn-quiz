@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/techlore-vpn-quiz/precache-manifest.a6764acbc3e60669bd7f0a3c7af77113.js"
+  "/techlore-vpn-quiz/precache-manifest.61cc58fdb94198c6f9badf1cc6ecfb8e.js"
 );
 
 self.addEventListener('message', (event) => {

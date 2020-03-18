@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/techlore-vpn-quiz/static/css/main.f4451135.chunk.css",
-    "main.js": "/techlore-vpn-quiz/static/js/main.c42f2a1b.chunk.js",
-    "main.js.map": "/techlore-vpn-quiz/static/js/main.c42f2a1b.chunk.js.map",
+    "main.js": "/techlore-vpn-quiz/static/js/main.522b1f86.chunk.js",
+    "main.js.map": "/techlore-vpn-quiz/static/js/main.522b1f86.chunk.js.map",
     "runtime-main.js": "/techlore-vpn-quiz/static/js/runtime-main.bdf12397.js",
     "runtime-main.js.map": "/techlore-vpn-quiz/static/js/runtime-main.bdf12397.js.map",
     "static/js/2.c7c68428.chunk.js": "/techlore-vpn-quiz/static/js/2.c7c68428.chunk.js",
     "static/js/2.c7c68428.chunk.js.map": "/techlore-vpn-quiz/static/js/2.c7c68428.chunk.js.map",
     "index.html": "/techlore-vpn-quiz/index.html",
-    "precache-manifest.a6764acbc3e60669bd7f0a3c7af77113.js": "/techlore-vpn-quiz/precache-manifest.a6764acbc3e60669bd7f0a3c7af77113.js",
+    "precache-manifest.61cc58fdb94198c6f9badf1cc6ecfb8e.js": "/techlore-vpn-quiz/precache-manifest.61cc58fdb94198c6f9badf1cc6ecfb8e.js",
     "service-worker.js": "/techlore-vpn-quiz/service-worker.js",
     "static/css/main.f4451135.chunk.css.map": "/techlore-vpn-quiz/static/css/main.f4451135.chunk.css.map",
     "static/js/2.c7c68428.chunk.js.LICENSE.txt": "/techlore-vpn-quiz/static/js/2.c7c68428.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bdf12397.js",
     "static/js/2.c7c68428.chunk.js",
     "static/css/main.f4451135.chunk.css",
-    "static/js/main.c42f2a1b.chunk.js"
+    "static/js/main.522b1f86.chunk.js"
   ]
 }
